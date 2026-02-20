@@ -1,0 +1,54 @@
+Given an array nums containing n distinct numbers in the range [0, n], 
+return the only number in the range that is missing from the array.
+
+Example 1:
+Input: nums = [3,0,1]
+Output: 2
+Explanation:
+n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 
+2 is the missing number in the range since it does not appear in nums.
+
+Example 2:
+Input: nums = [0,1]
+Output: 2
+Explanation:
+n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 
+2 is the missing number in the range since it does not appear in nums.
+
+-----------------------------------------------------------------------------------------------------
+
+🧠 Missing Number
+Intuition
+
+The array contains n distinct numbers taken from the range [0, n].
+If no number were missing, the total sum of numbers from 0 to n would follow the mathematical formula:
+                          n(n+1)/2​
+	​
+If we calculate this expected sum and subtract the actual sum of the array, the difference gives the missing number.
+----------------------------------------------------------------------------------------------------------------------
+Approach
+Let n be the length of the array.
+Compute the expected sum using the formula:
+n * (n + 1) // 2
+Compute the actual sum using sum(arr).
+Return the difference between expected sum and actual sum.
+This works because exactly one number in the range [0, n] is missing.
+
+------------------------------------------------------------------------------------------------------------------------
+Complexity
+Time complexity:
+𝑂(𝑛)
+O(n) → We compute the sum of the array once.
+
+Space complexity:
+𝑂(1)
+O(1) → No extra data structures are used.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Code
+class Solution(object):
+    def missingNumber(self, arr):
+        n = len(arr)
+        total = n * (n + 1) // 2
+        return total - sum(arr)
