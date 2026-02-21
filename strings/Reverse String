@@ -1,0 +1,43 @@
+Write a function that reverses a string. The input string is given as an array of characters s.
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+Example 1:
+Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+
+Example 2:
+Input: s = ["H","a","n","n","a","h"]
+Output: ["h","a","n","n","a","H"]
+
+----------------------------------------------------------------------------------------------------------------
+
+# Intuition
+We need to reverse the given list of characters **in-place**.
+Since the problem guarantees that `s` is a list, we can directly modify it without creating a new list.
+Python slicing allows us to reverse a list easily.
+
+-----------------------------------------------------------------------------------------------------------------
+
+# Approach
+* Use slicing with step `-1` to reverse the list.
+* Assign the reversed result back to the original list using `s[:]` so the modification happens in-place.
+* This keeps the same memory reference and satisfies the problem condition.
+
+-----------------------------------------------------------------------------------------------------------------
+
+# Complexity
+Time complexity:O(n)
+  We traverse all characters once while reversing.
+
+Space complexity:O(n)
+  Because slicing creates a temporary reversed copy internally.
+
+------------------------------------------------------------------------------------------------------------------
+
+# Code
+
+```python
+class Solution(object):
+    def reverseString(self, s):
+        s[:] = s[::-1]
+```
